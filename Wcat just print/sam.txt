@@ -1,9 +1,40 @@
-sa
+==========================Module - 1===========================
+-----------------JS---------------------
+output statements => console, alert
+comments
+let and dynamic behavior 
+operators
+data types
+loops
+strict mode and non strict mode 
+Functions and Function expressions AND IIFE and arrow functions,arguments 
+Arrays
+Objects
+Strings & template Strings
+type coercion (coercion is implicit, cast is explicit, and conversion is any of them),nan,infinity,truthy &falsy value
+this, call, apply, bind
+json => parse and stringify
+error handling
+everything is object or primitive 
 
-saa
+es6 ds => map, set, symbol, proxies
+es6 => deconstruction and spread operators and rest parameters
 
-a
 
-a
+------------------functional programming-----------------
+intro
+pure functions 
+mutations and side effects
+higher order functions 
+map filter and reduce
+polyfill
+currying and partial application
 
-a
+
+-----------oops------------
+
+import and export
+Module system => commonjs and amd
+prototypal inheritance
+bigint
+Function constructor,Object.create,class
