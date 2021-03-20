@@ -1,6 +1,6 @@
 ////npm init -y
 // npm install request
-
+//npm install cheerio
 let request = require("request");
 ////to select selector in html we use cheerio
 ///npm install cheerio
