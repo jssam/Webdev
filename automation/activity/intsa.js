@@ -51,11 +51,11 @@ browserpromise
 
 
 function email(){
-    let emailtype = gtab.type("input[name='username']" , "vking.0",{delay:300})
+    let emailtype = gtab.type("input[name='username']" , "name",{delay:300})
             return emailtype;
 }
 function password(){
-    let password = gtab.type("input[name='password']" , "Hello@Sanyam",{delay:300})
+    let password = gtab.type("input[name='password']" , "password",{delay:300})
     return password;
 }
 function click(){
