@@ -16,6 +16,7 @@ for(let i=0;i<arr.length;i++){
         files.push(arr[i]);
     }
 }
+console.log(files);
 
 for(let i = 0 ;i<input.length;i++ ){
     if(input[i]=='-n'||(input[i]=='-s'&&input[i+1]=='-b')){

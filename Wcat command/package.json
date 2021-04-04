@@ -1,0 +1,14 @@
+{
+  "name": "wcat-command",
+  "version": "1.0.0",
+  "description": "",
+  "main": "wcat.js",
+  "bin": {
+    "wcat": "bash"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

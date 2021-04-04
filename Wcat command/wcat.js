@@ -3,8 +3,11 @@ let print = require("./command/print");
 let scommand = require("./command/scommand");
 let bcommand = require("./command/bcommand");
 let ncommand = require("./command/ncommand");
-let arr = process.argv.slice(2);
 
+
+// module.exports = wcatcommand;
+// function  wcatcommand(){
+    let arr = process.argv.slice(2);
 let files=[];
 let input=[];
 

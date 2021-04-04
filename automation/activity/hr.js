@@ -1,5 +1,4 @@
 let puppeteer = require("puppeteer");
-let { password, email } = require("../../../secrets");
 let { codes } = require("./code");
 let fs = require("fs");
 let gtab;
@@ -21,13 +20,14 @@ browserPromise
         gtab = newTab;
         return loginPageWillBeopenedPromise;
     })
-    .then(function () {
-        // console.log("login Page opened");
-        let emailWillBeTypedPromise = gtab.type("#input-1", email, { delay: 200 });
-        return emailWillBeTypedPromise;
-    }).then(function () {
-        let passwordWillBeTypedPromise = gtab.type("#input-2", password, { delay: 200 });
-        return passwordWillBeTypedPromise;
+    .then(function(){
+        ///open page tyoe
+        let emailtype = gtab.type("#input-1" , "hehot44857@irahada.com",{delay:100})
+        return emailtype;
+    })
+    .then(function(){
+        let password = gtab.type("#input-2" , "1234567890",{delay:100})
+        return password;
     }).then(function () {
         let loginPageWillBeClickedpromise = gtab.
             click("button[data-analytics='LoginPassword']");
