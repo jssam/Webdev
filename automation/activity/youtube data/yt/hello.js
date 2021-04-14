@@ -1,6 +1,6 @@
 let puppeteer = require("puppeteer");
 let fs = require("fs");
-let link = `https://leetcode.com/problemset/all/`;
+let link = `https://leetcode.com/problemset/`;
 if(!fs.existsSync("./Questions")){
     fs.mkdirSync("./Questions");
 }
@@ -23,7 +23,7 @@ console.log("Before");
         await newTab.keyboard.press("ArrowDown");
         await newTab.keyboard.press("ArrowDown");
         await newTab.keyboard.press("Enter");
-        let links = ["?difficulty=Easy", "?difficulty=Medium", "?difficulty=Hard"]
+        let links = ["all/?difficulty=Easy", "all/?difficulty=Medium", "all/?difficulty=Hard","all/?search=array","all/?search=bitmanupulation","all/?search=trees","all/?search=graph","all/?search=recurrsion"]
         for (let i = 0; i < links.length; i++) {
             let newlink = await browserInstance.newPage();
             let url = links[i];
@@ -32,12 +32,18 @@ console.log("Before");
             console.log(chance);
             await newlink.waitForSelector('td[label="Title"]>div>a', { visible: true });
             let value = await newlink.evaluate(datafunction,'td[label="Title"]>div>a');
+            await newlink.close();
          if(!fs.existsSync(`./Questions/${chance}.json`)){
                 fs.writeFileSync(`./Questions/${chance}.json`, JSON.stringify(value));
 
             }
            
         }
+        newTab.close();
+
+
+
+
          function datafunction(quesion) {
             let pricearray = document.querySelectorAll(quesion);
             let details = [];
@@ -49,9 +55,6 @@ console.log("Before");
            
             return details;
         }
-
-
-
     } catch (err) {
         console.log(err);
     }
