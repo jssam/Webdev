@@ -1,16 +1,15 @@
 const fs = require("fs");
 const cheerio = require("cheerio");
 const request = require("request");
-fs.mkdirSync("./Questions");
-let A = [];
-let link = [];
-let url = "https://codeforces.com/problemset/page/";
-var i;
 
-function promisifiedrequest(url) {
+
+let linkcode = [];
+let codeforce = "https://codeforces.com/problemset/page/";
+
+function promisifiedrequest(codeforce) {
     //  pending state promise
     return new Promise(function (resolve, reject) {
-        request(url, function cb(err, sada, data) {
+        request(codeforce, function cb(err, sada, data) {
             if (err) {
                 // reject -> work fail
                 reject(err);
@@ -28,12 +27,12 @@ function promisifiedrequest(url) {
 
 
 // let getcontent = async function () {
-   let getcontent = function anubhav() {
+   let getcontent = async function () {
         //  pending state promise
         return new Promise(function (resolve, reject) {
-    for (i = 1; i <= 69; i++) {
-        let requestPromise = promisifiedrequest(url + i);
-        requestPromise
+    for (let i = 1; i <= 69; i++) {
+        let requestPromise = promisifiedrequest(codeforce + i);
+        await requestPromise
             .then(function (html) {
                 let $ = cheerio.load(html + "");
                 // console.log($.html());
@@ -49,8 +48,8 @@ function promisifiedrequest(url) {
                     // console.log(name)
                     let ch1 = nameis.substr(42);
                     let ch = nameis.charAt(nameis.length - 1);
-                    if (!link.includes(ch1)) {
-                        link.push(ch1);
+                    if (!linkcode.includes(ch1)) {
+                        linkcode.push(ch1);
                         if (ch == 'A') {
                             if (!fs.existsSync("./Questions/A.json")) {
                                 fs.writeFileSync("./Questions/A.json", JSON.stringify([`<td><a target="_blank" href=${nameis}>${name}</a></td>`]));
