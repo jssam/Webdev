@@ -19,26 +19,26 @@ browserpromise
             email()
             .then(function(){return password();})
             .then(function(){return click(); })
-            .then(function(){return ritik(); })
-            .then(function(){return gtab.goto("https://www.instagram.com/daredevil_ritik/",{delay:500}); })
+            .then(function(){return Sam(); })
+            .then(function(){return gtab.goto("https://www.instagram.com/jsam002/",{delay:500}); })
             .then(function(){return gtab.click(".eLAPa",{delay:1000}) })
-            .then(function(){return ritik(); })
+            .then(function(){return Sam(); })
             .then(function(){return likes(); })
-            .then(function(){return ritik(); })
+            .then(function(){return Sam(); })
             .then(function(){return likes(); })
-            .then(function(){return ritik(); })
+            .then(function(){return Sam(); })
             .then(function(){return likes(); })
-            .then(function(){return ritik(); })
+            .then(function(){return Sam(); })
             .then(function(){return likes(); })
-            .then(function(){return ritik(); })
+            .then(function(){return Sam(); })
             .then(function(){return likes(); })
-            .then(function(){return ritik(); })
+            .then(function(){return Sam(); })
             .then(function(){return likes(); })
-            .then(function(){return ritik(); })
+            .then(function(){return Sam(); })
             .then(function(){return likes(); })
-            .then(function(){return ritik(); })
+            .then(function(){return Sam(); })
             .then(function(){return likes(); })
-            .then(function(){return ritik(); })
+            .then(function(){return Sam(); })
             .then(function(){return likes(); })
  
         }, 1000);
@@ -62,10 +62,10 @@ function click(){
     let loginclick = gtab.click(".sqdOP.L3NKy.y3zKF");
     return loginclick;
 }
-let ritik = async ()=>{
+let Sam = async ()=>{
         await gtab.waitFor(3000);}
 
-let ritiklike = setTimeout(() => {async ()=>{
+let Samlike = setTimeout(() => {async ()=>{
 await gtab.click("svg[aria-label='Like']",{delay:1000});
 await gtab.click("._65Bje.coreSpriteRightPaginationArrow",{delay:500});}} ,1000)
 
