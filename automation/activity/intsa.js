@@ -1,76 +1,47 @@
 let puppeteer = require("puppeteer");
-let gtab;
-let browserpromise = puppeteer.launch({
-    headless:false,
-    defaultViewport:null,
-    args:["--size-maximized"]
-})
-browserpromise
-    .then(function(browserInstance){
-        let newTabpromise = browserInstance.newPage();
-        return newTabpromise;
-    })
-    .then(function(newTab){
-        let logintab = newTab.goto("https://www.instagram.com/");
-        gtab = newTab;
-        return logintab;
-    }).then(function(){
-      let sam=  setTimeout(() => {
-            email()
-            .then(function(){return password();})
-            .then(function(){return click(); })
-            .then(function(){return Sam(); })
-            .then(function(){return gtab.goto("https://www.instagram.com/jsam002/",{delay:500}); })
-            .then(function(){return gtab.click(".eLAPa",{delay:1000}) })
-            .then(function(){return Sam(); })
-            .then(function(){return likes(); })
-            .then(function(){return Sam(); })
-            .then(function(){return likes(); })
-            .then(function(){return Sam(); })
-            .then(function(){return likes(); })
-            .then(function(){return Sam(); })
-            .then(function(){return likes(); })
-            .then(function(){return Sam(); })
-            .then(function(){return likes(); })
-            .then(function(){return Sam(); })
-            .then(function(){return likes(); })
-            .then(function(){return Sam(); })
-            .then(function(){return likes(); })
-            .then(function(){return Sam(); })
-            .then(function(){return likes(); })
-            .then(function(){return Sam(); })
-            .then(function(){return likes(); })
- 
-        }, 1000);
-        return sam;
-    })
-    
-        .catch(function(err){
-            console.log(err);
-        })
+
+(async function () {
+    let browser = await puppeteer.launch({
+        headless: false,
+        defaultViewport: null,
+        args: ["--start-maximized"]
+    });
+    let allpages = await browser.pages();
+    let tab = allpages[0];
+    await tab.goto("https://www.instagram.com/");
+    await tab.waitForSelector("input[name='password']", { visible: true });
+    await tab.type("input[name='username']", "name", "name", { delay: 300 })
+    await tab.type("input[name='password']", "password", { delay: 300 })
+    await tab.click(".sqdOP.L3NKy.y3zKF");
+    await tab.waitForTimeout(3000);
+    await tab.goto("https://www.instagram.com/jsam002/", { delay: 500 });
+    let a = await tab.$$(".eLAPa");
+    console.log(a.length);
+    let s = true;
+    await tab.click(".eLAPa", { delay: 1000 });
+    while (s!=false){
+        let a = await tab.$('._65Bje.coreSpriteRightPaginationArrow')
+        if (a!=null) { 
+        await Sam(tab);
+        await likes(tab);
+    }else{ s = false;}
+        }
+})()
 
 
-function email(){
-    let emailtype = gtab.type("input[name='username']" , "name",{delay:300})
-            return emailtype;
+
+
+let Sam = async (tab) => {
+    await tab.waitForTimeout(3000);
 }
-function password(){
-    let password = gtab.type("input[name='password']" , "password",{delay:300})
-    return password;
-}
-function click(){
-    let loginclick = gtab.click(".sqdOP.L3NKy.y3zKF");
-    return loginclick;
-}
-let Sam = async ()=>{
-        await gtab.waitFor(3000);}
 
-let Samlike = setTimeout(() => {async ()=>{
-await gtab.click("svg[aria-label='Like']",{delay:1000});
-await gtab.click("._65Bje.coreSpriteRightPaginationArrow",{delay:500});}} ,1000)
 
-let likes = function(){
-        
-    gtab.click("svg[aria-label='Like']",{delay:500})
-    .then(function(){return gtab.click("._65Bje.coreSpriteRightPaginationArrow",{delay:500}); })
+let likes = async function (tab) {
+    let a = await tab.$("svg[aria-label='Unlike']")
+  if(a==null){
+    tab.click("svg[aria-label='Like']", { delay: 500 })
+    .then(function () { return tab.click("._65Bje.coreSpriteRightPaginationArrow", { delay: 500 })}); 
+
+  }else{
+    return tab.click("._65Bje.coreSpriteRightPaginationArrow", { delay: 500 });  }
 }
