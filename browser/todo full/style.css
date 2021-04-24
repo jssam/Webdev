@@ -1,0 +1,15 @@
+body{
+    margin:0;
+
+}
+.top{
+    height:4rem;
+    margin:0;
+    background-color: black;
+}
+.icon{
+    font-size: 38px;
+     color:aliceblue;
+     background-color: transparent;
+     margin-top: 0.3rem;
+}
