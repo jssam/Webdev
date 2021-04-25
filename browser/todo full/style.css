@@ -5,11 +5,113 @@ body{
 .top{
     height:4rem;
     margin:0;
-    background-color: black;
+    background-color: rgb(36, 34, 34);
+    display: flex;
+    align-items: center;
+    
 }
+
+.filter{
+    height: 100%;
+    width: 25%;
+ 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.filter:hover {
+    background-color: rgb(49, 48, 48);
+  }
+.filter_color{
+    height: 50%;
+    width: 50%;
+ 
+}
+.pink{
+    background-color: pink;
+    border-radius: 0.2rem;
+}
+
+.blue{
+    background-color: blue;
+    border-radius: 0.2rem;
+}
+.green{
+    background-color: green;
+    border-radius: 0.2rem;
+}
+.black{
+    background-color: black;
+    border-radius: 0.2rem;
+}
+.filtercontainer{
+    height:60%;
+    width: 16rem;
+    background-color: rgb(64, 63, 65);
+    border-radius: 0.5rem;
+    margin-right: 7rem;
+    margin-left: 20rem;
+    display: flex;
+    justify-content: space-evenly;
+}
+.batchicon{
+    display: flex;
+    height:60%;
+    width: 6rem;
+    border-radius: 0.5rem;
+    background-color: rgb(64, 63, 65);
+    justify-content:center;
+    align-items: center;
+
+}
+.icon:hover {
+    background-color: rgb(49, 48, 48);
+  }
 .icon{
-    font-size: 38px;
+    display: flex;
+    height:100%;
+    width: 50%;
+    font-size:2rem;
      color:aliceblue;
-     background-color: transparent;
-     margin-top: 0.3rem;
+     justify-content:center;
+     align-items: center;  
+}
+.maincontainer{
+    height: 91vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 5px 10px black;
+}
+.writeparent{
+    height: 60vh;
+    width: 90vh;
+    background-color: white;
+    border-top-left-radius: 0.5rem;
+    border-bottom-left-radius: 0.5rem;
+    box-shadow:20px 20px 100px 10px rgb(80, 79, 79);
+    text-align: justify  ;
+    font-size: 30px;
+    padding: 2rem 3rem;
+    box-sizing: border-box;
+    border:none;
+    outline: none;
+    font-family: "Raleway", sans-serif;
+}
+.colorselector{
+    height: 60vh;
+    width: 30vh;
+    border-top-right-radius: 0.5rem;
+    border-bottom-right-radius: 0.5rem;
+    background-color:rgb(36, 34, 34) ;
+    box-shadow:30px 20px 100px 10px rgb(80, 79, 79);
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+}
+.filtercolor{
+    height:15%;
+    width:60%;
+    margin: 12px;
 }
