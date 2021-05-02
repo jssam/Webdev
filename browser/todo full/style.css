@@ -1,6 +1,6 @@
 body{
     margin:0;
-
+    background-color: rgb(223, 217, 217);
 }
 .top{
     height:4rem;
@@ -81,7 +81,12 @@ body{
     display: flex;
     align-items: center;
     justify-content: center;
-    box-shadow: 5px 10px black;
+    box-shadow: 0 1rem ;
+    position: absolute;
+    width: 50rem;
+    left: calc(( 100vh ) / 2);
+    
+
 }
 .writeparent{
     height: 60vh;
@@ -97,6 +102,7 @@ body{
     border:none;
     outline: none;
     font-family: "Raleway", sans-serif;
+
 }
 .colorselector{
     height: 60vh;
@@ -115,3 +121,37 @@ body{
     width:60%;
     margin: 12px;
 }
+.border{
+    border: 3px solid white;
+}
+.task_filter{
+    height: 7%;
+}
+.task_container{
+    height: 10rem;
+    width:16rem;
+    background-color: #fff;
+      margin: 3rem;
+}
+.task_desc_container{
+    height: 80%;
+    padding-left:0.5rem;
+}
+.task_desc{
+    height: 70%;
+    overflow:auto;
+    text-align: center;
+    /* words */
+    word-break: break-all;
+    
+}
+.main_container{
+    height:88vh;
+    overflow: auto;
+     padding-top: 2rem;
+     padding-left: 3rem;
+     display: flex;
+     justify-content: space-evenly;
+     flex-wrap: wrap;
+     
+ }

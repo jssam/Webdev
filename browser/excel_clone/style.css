@@ -1,0 +1,104 @@
+body{
+    margin:0;
+}
+*{
+    box-sizing: border-box;
+}
+.menu-container{
+    background-color: antiquewhite;
+    height:80px;
+}
+.formula-container{
+    background-color: aqua;
+    height: 30px;
+}
+.grids{
+height: calc(100vh - ( 80px + 30px + 40px ));
+position: relative;
+overflow: auto;
+}
+.sheets{
+    background-color:rgb(202, 197, 206);
+    height: 40px;
+    display: flex;
+    
+    overflow: auto;
+}
+.add-sheet_container{
+    height: 100%;
+    width:30px;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
+}
+.icon{
+    font-size: 1.2rem;
+    width: auto;
+    
+}
+.sheets-list{
+    display: flex;
+    align-items: center;
+
+}
+.sheet{
+    width: 60px;
+    height:100%;
+    /* content center par lane je liye ye hota  hai */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.active-sheet{
+background-color: white;
+}
+.top-left-block {
+    height: 30px;
+    width: 25px;
+    background-color: gray;
+}
+
+.top-row {
+    height: 30px;
+    background-color: lightgreen;
+    display: flex;
+    position: absolute;
+    top: 0px;
+    left: 25px
+}
+
+.grid_container {
+    position: relative;
+    
+}
+.row {
+    display: flex;
+    
+
+}
+.col {
+    min-width: 80px;
+    border: 1px solid;
+    min-height:30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.left-col {
+    width: 25px;
+    /* border: 1px solid red; */
+}
+
+.grid {
+    position: absolute;
+    top: 30px;
+    left: 25px;
+}
+
+.left-col_box {
+    height: 30px;
+    background-color: lightgreen;
+    text-align: center;
+    border: 1px solid;
+}
