@@ -34,15 +34,30 @@ overflow: auto;
 .icon{
     font-size: 1.2rem;
     width: auto;
+    min-width: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center ;
     
 }
 .sheets-list{
     display: flex;
+    overflow: auto;
     align-items: center;
+    /* overflow: hidden; */
 
 }
+.sheets-list::-webkit-scrollbar {
+    display: none;
+  }
+  
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .sheets-list {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+  }
 .sheet{
-    width: 60px;
+    min-width: 60px;
     height:100%;
     /* content center par lane je liye ye hota  hai */
     display: flex;

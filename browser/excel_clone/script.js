@@ -47,7 +47,7 @@ let topRow = document.querySelector(".top-row");
         for (let i = 0; i < 100; i++) {
             str += `<div class="row">`
             for (let j = 0; j < 26; j++) {
-                str += `<div class='col' contentEditable="true">${String.fromCharCode(65 + j)}${i + 1}</div>`
+                str += `<div class='col' >${String.fromCharCode(65 + j)}${i + 1}</div>`
             }
             str += "</div>";
         }
