@@ -11,8 +11,58 @@
 </head>
 
 <body>
-    <div class="menu-container">Menu</div>
-    <div class="formula-container">formula</div>
+    <div class="menu-container">
+        <div class="formatting-contaner">
+            <div class="subgroup">
+                <select id="font-family">
+                    <option value="Arial">Arial</option>
+                    <option value="Cambria">Cambria</option>
+                    <option value="Geirgia">Geirgia</option>
+                    <option value="Monospace">Monospace</option>
+                    <option value="sans-serif">sans-serif</option>
+                    <option value="fantasy">fantasy</option>
+                </select>
+
+                <div class="BUI_container">
+                    <input type="button" value="B" class="bold">
+                    <input type="button" value="I" class="italic">
+                    <input type="button" value="U" class="underline">
+                </div>
+            </div>
+            <div class="subgroup">
+                <div class="font-size_container">
+                    <select id="font-size">
+                        <option value="8">8</option>
+                        <option value="10">10</option>
+                        <option value="12">12</option>
+                        <option value="16">16</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="32">32</option>
+                    </select>
+                </div>
+                <div class="color-container">
+                    <input type="color" id="color" value="black">
+                    <input type="color" id="bg-color" value="#FFFFFF">
+                </div>
+            </div>
+        </div>
+        <div class="alignment-container">
+            <input type="button" value="L" class="left">
+            <input type="button" value="C" class="center">
+            <input type="button" value="R" class="right">
+        </div>
+    </div>
+
+
+    <div class="formula-container">
+        <input type="text" class="adress-box" readonly>
+        <div class="seperator">:</div>
+        <input type="text" class="formula-box">
+
+    </div>
+
+
     <div class="grids">
         <div class="grid_container">
             <div class="top-left-block">
@@ -34,6 +84,7 @@
 
         </div>
     </div>
+    <script src="sheetmaker.js" defer></script>
     <script src="script.js" defer></script>
 </body>
 
