@@ -45,8 +45,6 @@ function handleActiveSheet(e) {
 }
 
 
-
-
 for (let i = 0; i < Allcell.length; i++) {
     Allcell[i].addEventListener("click", function handlecell() {
         let rid = Number(Allcell[i].getAttribute("rid")) + 1;
