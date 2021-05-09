@@ -44,7 +44,7 @@ function handleActiveSheet(e) {
 
 }
 
-
+//////////all grid par loop
 for (let i = 0; i < Allcell.length; i++) {
     Allcell[i].addEventListener("click", function handlecell() {
         let rid = Number(Allcell[i].getAttribute("rid")) + 1;
@@ -53,6 +53,15 @@ for (let i = 0; i < Allcell.length; i++) {
         let adress = colAdd + rid;
 
         adressbar.value = adress;
+        ///////CHECK FOR BOLDNESS   
+        let cellObject = sheetDB[rid-1][cid];
+        if (cellObject.bold == true) {
+            boldbtn.classList.add("active-btn");
+        } else {
+            boldbtn.classList.remove("active-btn");
+        }
+console.log("this is one"+cellObject);
+
     });
 }
 
@@ -93,17 +102,27 @@ fontbtn.addEventListener("change", function () {
 
 ////bold ke liye
 boldbtn.addEventListener("click", function () {
+    // boldbtn.classList.add("active-btn");
     let address = document.querySelector(".adress-box");
+    let isActive = boldbtn.classList.contains("active-btn");
     let value = address.value;
     let { rid, cid } = adresscalculaor(value);
     let thecol = document.querySelector(`.col[cid="${cid}"][rid="${rid}"]`)
     // consol.log(thecol)
-    if (thecol.style.fontWeight == "bold") {
-        thecol.style.fontWeight = "normal";
-    } else {
+ 
+    let cellObject = sheetDB[rid][cid];
+    if ( cellObject.bold  == false) {
+        // cell text bold
         thecol.style.fontWeight = "bold";
-
+        boldbtn.classList.add("active-btn");
+        cellObject.bold = true
+    } else {
+        // cell text normal
+        thecol.style.fontWeight = "normal";
+        boldbtn.classList.remove("active-btn");
+        cellObject.bold = false;
     }
+    console.log(sheetDB);
 })
 
 ///italics ke liye

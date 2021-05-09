@@ -23,3 +23,22 @@ for (let i = 0; i < 100; i++) {
     str += "</div>";
 }
 grid.innerHTML = str;
+
+// initial load
+let sheetDB = [];
+for (let i = 0; i < 100; i++) {
+    let row = [];
+    for (let j = 0; j < 26; j++) {
+        let cell = {
+            bold: false,
+            italic: "normal",
+            underline: "none",
+            fontFamily: "Arial",
+            fontSize: "10",
+            halign: "left"
+        }
+        row.push(cell);
+    }
+    sheetDB.push(row);
+}
+console.log(sheetDB);
