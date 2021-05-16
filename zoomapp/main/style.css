@@ -1,0 +1,35 @@
+body{
+    margin:0;
+  
+}
+*{
+    box-sizing: border-box;
+}
+
+.videostramer{
+    width: 100vm;
+    height:100vh;
+    background-color: black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.videoshow{
+    height:100%;
+
+}
+.audio{
+    display: none;
+}
+.button{
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position:fixed;
+    right:100px;
+    top:300px;
+    z-index: 3;
+}
