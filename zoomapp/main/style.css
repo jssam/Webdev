@@ -21,15 +21,69 @@ body{
 .audio{
     display: none;
 }
-.button{
-    border-radius: 50%;
-    width: 70px;
-    height: 70px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position:fixed;
+.record_parent{
+    width: 80px;
+    height: 80px;
+    border: solid white;
     right:100px;
     top:300px;
     z-index: 3;
+    display: flex;
+    justify-content: center;
+    position:fixed;
+    border-radius: 50%;
+    align-items: center;
+}
+#record-video{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px; 
+
+outline: none;
+border:none;
+    background-color: red;
+
+}
+.click_parent{
+    width: 80px;
+    height: 80px;
+    border: solid white;
+    right:100px;
+    top:400px;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    position:fixed;
+    border-radius: 50%;
+    align-items: center;
+}
+#click-pick{
+    border-radius: 50%;
+    width: 50px;
+    height: 50px; 
+
+outline: none;
+border:none;
+    background-color: grey;
+
+}
+.record-animation{
+    animation: scaleUp 1s ease-in infinite; 
+ }
+ .capture-animation{
+     animation: scaleUp 0.5s ease-in ; 
+  }
+@keyframes scaleUp {
+    0% {
+        transform: scale(1);   
+    }
+    25% {
+        transform: scale(1.125);
+    }
+    50% {
+        transform: scale(1.16);
+    }
+    75%{
+        transform: scale(1.125);
+    }
 }
