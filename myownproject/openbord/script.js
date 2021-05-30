@@ -1,4 +1,6 @@
+// const fs = require("fs");
 let board = document.getElementById("board");
+
 let color_red = document.querySelector(".color.red");
 let color_blue = document.querySelector(".color.blue");
 let color_green= document.querySelector(".color.green");
@@ -6,8 +8,10 @@ let color_yellow= document.querySelector(".color.yellow");
 let color_eraser= document.querySelector(".eraser");
 let newpage= document.querySelector(".newpage");
 let slider = document.getElementById("pensize");
+let downpdf = document.querySelector(".downpdf");
 
-
+// const imgToPDF = require('image-to-pdf');
+let pages = [];
 let color_black= document.querySelector(".color.black");
 let parent = document.querySelector(".parent");
 let isMouseDown = false;
@@ -97,7 +101,9 @@ newpage.addEventListener("click",function(){
     let link = canvas.toDataURL();
     let anchor = document.createElement("a");
     anchor.href = link;
+    pages.push(link);
     anchor.download= "file.png";
+console.log(pages);
     anchor.click();
     tool = replaceCanvas(board);
     tool.strokeStyle="black";
@@ -119,3 +125,8 @@ function replaceCanvas(elem) {
     elem.parentNode.removeChild(elem);
     return tool;
 }
+// downpdf.addEventListener("click",function(){
+//     imgToPDF(link, 'A4')
+//     .pipe(fs.createWriteStream('output.pdf'));
+   
+// })

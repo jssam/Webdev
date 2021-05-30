@@ -7,12 +7,14 @@ body{
 }
 
 .videostramer{
-    width: 100vm;
+    width: 100vw;
     height:100vh;
     background-color: black;
     display: flex;
     justify-content: center;
     align-items: center;
+    /* transform: scale(1.45); */
+    overflow:hidden;
 }
 .videoshow{
     height:100%;
@@ -86,4 +88,83 @@ border:none;
     75%{
         transform: scale(1.125);
     }
+}
+
+.timmer{
+    height: 10px;
+    width: 150px;
+    color: aliceblue;
+    /* border: solid 1rem white; */
+    position: fixed;
+    z-index: 10;
+    bottom: 50px;
+    left: 51px;
+    font-weight: 500;
+    font-size: 1.7rem;
+    display: none; 
+    z-index: 2;
+
+    /* visibility: hidden; */
+}
+.timming-active{
+    display: block;
+}
+
+.filter-container{
+    height: 60vh;
+    width: 4rem;
+    /* border: solid red 2px; */
+    position: fixed;
+    left:25px;
+    top:70px;
+    z-index: 3;
+}
+.filter{
+    height: 80px;
+    margin-top: 2px;
+    /* width: 145px; */
+    background-image: url("https://picsum.photos/200");
+    background-size: cover;
+    background-repeat: none;
+    background-blend-mode: color-burn;
+    z-index: 3;
+}
+.filter_ui{
+    height: 100vh;
+    width: 100vw;
+    /* background-color: rgba(0, 0, 255, 0.253); */
+    position: fixed;
+    z-index: 1;
+    display: none;
+}
+.filterActive{
+    display: block;
+}
+.plus{
+    width: 80px;
+    height: 80px;
+    background-color: grey;
+   
+    right:100px;
+    top:100px;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    position:fixed;
+    border-radius: 50%;
+    align-items: center;
+}
+.minus{
+    width: 80px;
+    height: 80px;
+    background-color: grey;
+   
+    right:100px;
+    top:200px;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    position:fixed;
+    border-radius: 50%;
+    align-items: center;
 }

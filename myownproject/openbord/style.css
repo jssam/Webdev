@@ -67,3 +67,11 @@ background-color: yellow;
     align-items: center;
     justify-content: center;
 }
+.downpdf{
+
+    height: 3rem;
+    width: 3rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}

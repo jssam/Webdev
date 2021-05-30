@@ -1,23 +1,56 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
-    <div class = "videostramer">
+    <!-- filter adding -->
+    <div class="filter-container">
+        <div class="filter" style="background-color: #582d1859"></div>
+        <div class="filter" style="background-color: #f3db0734"></div>
+        <div class="filter" style="background-color: #aa16344d"></div>
+        <div class="filter" style="background-color: #04ff192d"></div>
+        <div class="filter" style="background-color: #2136f33b"></div>
+        <div class="filter"></div>
+    </div>
+    <!-- filter for ui -->
+    <div class="filter_ui filterActive"></div>
+    <!-- video catcher -->
+    <div class="videostramer">
         <video autoplay class="videoshow"></video>
     </div>
-    <audio controls class="audio" ></audio>
+    <audio controls class="audio"></audio>
+
+    <!-- record video -->
     <div class="record_parent">
-    <button id="record-video" class="button"></button>
-</div>
-<div class="click_parent">
-    <button id="click-pick" class="button"></button>
-</div>
+        <button id="record-video" class="button"></button>
+    </div>
+
+    <!-- click button -->
+    <div class="click_parent">
+        <button id="click-pick" class="button"></button>
+    </div>
+        <!-- plus button -->
+    <div class="plus">
+        <i class="fas fas fa-plus fa-3x icon"></i>
+      </div>
+
+      <div class="minus">
+        <i class="fas fas fa-minus fa-3x icon"></i>
+      </div>
+
+    <!-- <timmer></timmer> -->
+    <div class="timmer">00:00:00
+    </div>
     <script src="script.js" defer></script>
 </body>
+
 </html>
