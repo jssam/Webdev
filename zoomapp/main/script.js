@@ -7,6 +7,7 @@ let timming= document.querySelector(".timmer");
 let filter = document.querySelectorAll(".filter");
 let plus = document.querySelector(".plus");
 let minus = document.querySelector(".minus");
+let gallery = document.querySelector(".gallery");
 let zoomlevel =1;
 let filter_ui = document.querySelector(".filter_ui");
 ////data buffer me ata hai to hm ek array me data girate jaynge 
@@ -32,6 +33,7 @@ navigator.mediaDevices.getUserMedia(constrains)
             let blob = new Blob(buffer, { type: "video/mp4" });
             const url = window.URL.createObjectURL(blob);
             ///download ke liye ek ankor tag bnana hai
+            addMediaToDB(url,"video");
             let a = document.createElement("a");
             //download
             a.download = "file.mp4";
@@ -82,11 +84,14 @@ imagepic.addEventListener("click",function(){
     tool.fillRect(0, 0,canvas.width,canvas.height);
     }
     let url = canvas.toDataURL();
-    let a = document.createElement("a");
-    a.download = "file.png";
-    a.href = url;
-    a.click();
-    a.remove();
+
+    addMediaToDB(url,"image");
+    ///download code abhi bad me kam ayegga
+    // let a = document.createElement("a");
+    // a.download = "file.png";
+    // a.href = url;
+    // a.click();
+    // a.remove();
   
 })
 function ontimmer(){
@@ -139,4 +144,10 @@ minus.addEventListener("click",function(){
         zoomlevel -=0.2;
         videoelem.style.transform = `scale(${zoomlevel})`;
     }
+})
+
+gallery.addEventListener("click",function(){
+
+        window.location.assign("gallery.html");
+
 })

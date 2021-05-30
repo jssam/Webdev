@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <!-- <h1>Canvas example</h1> -->
+  <div class="tools">
+    <div class="parent">
+      <div class="color black"></div>
+      <div class="color red"></div>
+      <div class="color green"></div>
+      <div class="color blue"></div>
+      <div class="color yellow"></div>
+    </div>
+    <div class="eraser">
+      <i class="fas fa-eraser fa-3x icon"></i>
+    </div>
+    <div class="slidecontainer">
+      <input type="range" min="1" max="50" value="5" class="slider" id="pensize">
+    </div>
+    <div class="newpage">
+      <i class="fas fa-plus-square fa-3x icon"></i>
+    </div>
+    <div class="downpdf">
+      <i class="fas fa-file-download fa-3x icon"></i>
+    </div>
+  </div>
+
+  <canvas id="board"></canvas>
+  
+  <script src="script.js"></script>
+</body>
+
+</html>
