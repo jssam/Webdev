@@ -15,6 +15,12 @@
   <link rel="stylesheet" href="./CodeMirror/xq-light.css">
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="canvas.css">
+  <script>
+    const ROOM_ID = "<%= roomId %>"
+  </script>
+  <script defer src="https://unpkg.com/peerjs@1.2.0/dist/peerjs.min.js"></script>
+  <script src="/socket.io/socket.io.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 
 <body>
@@ -75,13 +81,13 @@
 
     <!-- right most part -->
     <div class="right-container">
-      <div class="video-container">
+      <div class="video-container-sender">
      
-          <video controls autoplay class="videoshow"></video>
+    
  
       </div>
-      <div class="video-container">
-        <video controls autoplay class="videoshow"></video>
+      <div class="video-container-receiver">
+     
       </div>
 
 
