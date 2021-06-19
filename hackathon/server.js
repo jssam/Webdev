@@ -19,11 +19,19 @@ io.on('connection', socket => {
   socket.on('join-room', (roomId, userId) => {
     socket.join(roomId)
     socket.broadcast.to(roomId).emit('user-connected', userId)
-
+    
+  
     socket.on('disconnect', () => {
       socket.broadcast.to(roomId).emit('user-disconnected', userId)
     })
   })
+  socket.on('drawing', (data) => socket.broadcast.emit('drawing', data));
+  socket.on("chat" , function(chatObj){
+    socket.broadcast.emit("chatLeft" , chatObj);
+})
+socket.on("editor" , function(editObj){
+  socket.broadcast.emit("code" , editObj);
+})
 })
 
 server.listen(3000)
