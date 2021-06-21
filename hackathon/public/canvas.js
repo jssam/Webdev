@@ -1,4 +1,5 @@
 // const fs = require("fs");
+// var socket = io();
 let body = document.querySelector("body");
 let board = document.getElementById("board");
 // let leftmargin = document.querySelector(".CodeMirror");
@@ -8,8 +9,12 @@ let color_green= document.querySelector(".color.green");
 let color_yellow= document.querySelector(".color.yellow");
 let color_eraser= document.querySelector(".eraser");
 let newpage= document.querySelector(".newpage");
-let slider = document.getElementById("pensize");
+
 let downpdf = document.querySelector(".downpdf");
+socket.on('drawing', onDrawingEvent);
+var current = {
+    color: 'white '
+  };
 
 // const imgToPDF = require('image-to-pdf');
 let pages = [];
@@ -24,41 +29,32 @@ board.width = (window.innerWidth)*2/5;
 let tool = board.getContext("2d");
 tool.fillStyle= "black";
 tool.fillRect(0, 0, board.width, board.height);
-tool.strokeStyle="white";
+current.color="white";
 tool.lineWidth = 5;
-tool.lineWidth = slider.value;
-slider.oninput = function() {
-    tool.lineWidth = this.value;
-  }
+
 color_eraser.addEventListener("click",function(e){
-    slider.value = 40;
-    tool.lineWidth = slider.value;
-    tool.strokeStyle="black";
+
+    current.color="black";
     });  
 color_black.addEventListener("click",function(e){
-    slider.value = 5;
-    tool.lineWidth = slider.value;
-    tool.strokeStyle="white";
+  
+    current.color="white";
     });  
 color_red.addEventListener("click",function(e){
-    slider.value = 5;
-    tool.lineWidth = slider.value;
-tool.strokeStyle="red";
+
+current.color="red";
 });   
 color_blue.addEventListener("click",function(e){
-    slider.value = 5;
-    tool.lineWidth = slider.value;
-tool.strokeStyle="blue";
+
+    current.color="blue";
 }); 
   color_green.addEventListener("click",function(e){
-    slider.value = 5;
-    tool.lineWidth = slider.value;
-tool.strokeStyle="green";
+ 
+    current.color="green";
 });
 color_yellow.addEventListener("click",function(e){
-    slider.value = 5;
-    tool.lineWidth = slider.value;
-tool.strokeStyle="yellow";
+ 
+    current.color="yellow";
 });
 
 
@@ -66,6 +62,8 @@ tool.strokeStyle="yellow";
 document.body.addEventListener("mousedown",function(e){
     let x = e.clientX;
     let y = e.clientY;
+    current.x =getCoordinates_x(x);
+    current.y = getCoordinates(y);
     x = getCoordinates_x(x);
     y = getCoordinates(y);
     tool.beginPath();
@@ -78,8 +76,9 @@ document.body.addEventListener("mousemove",function(e){
     y = getCoordinates(y);
     x = getCoordinates_x(x);
     if(isMouseDown){
-        tool.lineTo(x,y);
-        tool.stroke();
+        drawLine(current.x, current.y, x||e.touches[0].clientX, y||e.touches[0].clientY, current.color, true);
+        current.x = x||e.touches[0].clientX;
+        current.y = y||e.touches[0].clientY;
     }
 });
 function getCoordinates(initialY) {
@@ -95,9 +94,12 @@ return s;
 }
 
 document.body.addEventListener("mouseup",function(e){
-
-    tool.stroke();
-    isMouseDown = false;;
+    let x = e.clientX;
+    let y = e.clientY;
+    y = getCoordinates(y);
+    x = getCoordinates_x(x);
+    drawLine(current.x, current.y, x||e.touches[0].clientX, y||e.touches[0].clientY, current.color, false);
+    isMouseDown = false;
 
 });
 newpage.addEventListener("click",function(){
@@ -121,7 +123,7 @@ console.log(pages);
 tool.fillRect(0, 0, board.width, board.height);
     tool.strokeStyle="white";
     tool.lineWidth = 5;
-    tool.lineWidth = slider.value;
+  
     board = document.getElementById("board");
    
 })
@@ -143,3 +145,48 @@ function replaceCanvas(elem) {
 //     .pipe(fs.createWriteStream('output.pdf'));
    
 // })
+
+
+function onDrawingEvent(data){
+    var w = board.width;
+    var h = board.height;
+    drawLine(data.x0 * w, data.y0 * h, data.x1 * w, data.y1 * h, data.color);
+  }
+
+
+  function onResize() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  function throttle(callback, delay) {
+    var previousCall = new Date().getTime();
+    return function() {
+      var time = new Date().getTime();
+
+      if ((time - previousCall) >= delay) {
+        previousCall = time;
+        callback.apply(null, arguments);
+      }
+    };
+  }
+  
+  function drawLine(x0, y0, x1, y1, color, emit){
+    tool.beginPath();
+    tool.moveTo(x0, y0);
+    tool.lineTo(x1, y1);
+    tool.strokeStyle = color;
+    tool.lineWidth = 5;
+    tool.stroke();
+    tool.closePath();
+    if (!emit) { return; }
+    var w = board.width;
+    var h = board.height;
+
+    socket.emit('drawing', {
+      x0: x0 / w,
+      y0: y0 / h,
+      x1: x1 / w,
+      y1: y1 / h,
+      color: color
+    });
+}

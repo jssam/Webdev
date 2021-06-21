@@ -1,6 +1,6 @@
 const socket = io('/')
 const video_sender = document.querySelector('.video-container-sender')
-const video_reciever= document.querySelector('.video-container-receiver')
+// const video_reciever= document.querySelector('.video-container-receiver')
 const myPeer = new Peer(undefined, {
   host: `/`,
   port: '9000'
@@ -41,7 +41,7 @@ function connectToNewUser(userId, stream) {
   const call = myPeer.call(userId, stream)
   const video = document.createElement('video')
   call.on('stream', userVideoStream => {
-    addVideoStream_reciever(video, userVideoStream)
+    addVideoStream(video, userVideoStream)
   })
   call.on('close', () => {
     video.remove()
@@ -59,12 +59,29 @@ function addVideoStream(video, stream) {
   video.classList.add("video");
   video_sender.append(video)
 }
-function addVideoStream_reciever(video, stream) {
-    video.srcObject = stream
-    console.log(video);
-    video.addEventListener('loadedmetadata', () => {
-      video.play()
-    })
-    video.classList.add("video");
-    video_reciever.append(video)
-  }
+
+
+
+
+let chatinput = document.getElementById("chat-input");
+let chatwindow = document.querySelector(".chat-area");
+
+chatinput.addEventListener("keypress",function(e){
+if(e.key=="Enter"&& chatinput.value){
+    let chatDiv = document.createElement("div");
+    chatDiv.classList.add("chats");
+    chatDiv.classList.add("right");
+    chatDiv.textContent = chatinput.value;
+    chatwindow.append(chatDiv);
+    socket.emit("chat" , {chat:chatinput.value})
+    chatinput.value="";
+}
+})
+
+socket.on("chatLeft" , function(chatObj){
+  let chatDiv = document.createElement("div");
+  chatDiv.classList.add("chats");
+  chatDiv.classList.add("left");
+  chatDiv.textContent = chatObj.chat;
+  chatwindow.append(chatDiv);
+})
